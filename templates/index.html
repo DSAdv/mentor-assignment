@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ title }}</title>
 </head>
 <body>
+    <div>
+        <h1>Keep your link short!</h1>
+        <hr>
+        <div>
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.link.label }} <br>
+                    {{ form.link }} <br>
+                    {% for error in form.link.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.submit() }}
+                </p>
+            </form>
+        </div>
+        <div>
+            <h2>Generated Link</h2>
+            <hr>
+            <p>
+                {% if short_link %}
+                    Short URL: <a href="{{ short_link }}">{{ short_link }}</a> <br>
+                {% endif %}
+                {% if redirect_count %}
+                    Redirects count: {{ redirect_count }} <br>
+                {% endif %}
+            </p>
+        </div>
+    </div>
 
 </body>
 </html>
