@@ -24,14 +24,14 @@
             </form>
         </div>
         <div>
-            <h2>Generated Link</h2>
-            <hr>
             <p>
                 {% if short_link %}
-                    Short URL: <a href="{{ short_link }}">{{ short_link }}</a> <br>
+                    <h2>Generated Link</h2>
+                    <hr>
+                    <p>Short URL: <a href="{{ short_link }}">{{ short_link }}</a></p> <br>
                 {% endif %}
                 {% if redirect_count %}
-                    Redirects count: {{ redirect_count }} <br>
+                    <p> Redirects count: {{ redirect_count }} </p> <br>
                 {% endif %}
             </p>
         </div>
