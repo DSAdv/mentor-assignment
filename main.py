@@ -1,8 +1,18 @@
 from app import create_app
+from flask.cli import with_appcontext
+from models import db
+
+app = create_app()
+
+
+@app.cli.command()
+@with_appcontext
+def init_db():
+    """Initialize the database with required tables."""
+    db.create_all()
 
 
 def main():
-    app = create_app()
     app.run(port=5000, debug=True)
 
 
